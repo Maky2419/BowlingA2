@@ -8,10 +8,9 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         // We find all objects of type FallTrigger
-        pins = FindObjectsByType<FallTrigger>(FindObjectSortMode.None);
+        pins = FindObjectsByType<FallTrigger>(FindObjectsSortMode.None);
 
-        // We then loop over our array of pins and add the
-        // IncrementScore function as their listener
+        // We then loop over our array of pins and add the IncrementScore function as their listener
         foreach (FallTrigger pin in pins)
         {
             pin.OnPinFall.AddListener(IncrementScore);
