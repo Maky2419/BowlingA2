@@ -4,6 +4,7 @@ using UnityEngine.Events; // Add this namespace for the Public UnityEvent OnSpac
 public class InputManager : MonoBehaviour
 {
     public UnityEvent<Vector2> OnMove = new UnityEvent<Vector2>();
+    public UnityEvent OnResetPressed = new UnityEvent();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +25,11 @@ public class InputManager : MonoBehaviour
         if (Input.GetKey(KeyCode.D)){
             input += Vector2.right;
         }
+        if (Input.GetKeyDown(KeyCode.R)) {
+            OnResetPressed?.Invoke();
+            }
         OnMove?.Invoke(input);
+
+        
     }
 }
